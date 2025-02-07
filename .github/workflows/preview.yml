@@ -25,6 +25,7 @@ concurrency:
 
 env:
   NUXT_APP_BASE_URL: /
+  NODE_ENV: preview
 
 jobs:
   # Build job
@@ -44,9 +45,9 @@ jobs:
       #   working-directory: './'
       - name: download github modules
         run: |
-          git clone -b dev https://github.com/Language-Technology-Assessment/website.git ./website
-          git clone https://github.com/Language-Technology-Assessment/main-database.git ./website/repos/data
-          git clone https://github.com/Language-Technology-Assessment/European-open-AI-index.git ./website/repos/website
+          git clone -b preview https://github.com/Language-Technology-Assessment/website.git ./website
+          git clone -b preview https://github.com/Language-Technology-Assessment/main-database.git ./website/repos/data
+          git clone -b preview https://github.com/Language-Technology-Assessment/European-open-AI-index.git ./website/repos/website
         working-directory: './'
       - name: Detect package manager
         id: detect-package-manager
